@@ -42,10 +42,12 @@ export interface EventAction {
 }
 
 export interface CalendarEvent<MetaType = any> {
-  id?: string | number;
+  _id?: string | number; //Added "_" for Mongo Funcionality
   start: Date;
   end?: Date;
+  isScheduledCal?: boolean; // Added to split data coming in from th database
   title: string;
+  type?: string; // Added Type
   color?: EventColor;
   actions?: EventAction[];
   allDay?: boolean;
